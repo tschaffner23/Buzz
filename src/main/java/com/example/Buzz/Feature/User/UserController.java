@@ -1,36 +1,43 @@
 package com.example.Buzz.Feature.User;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.Buzz.Feature.User.Model.UserDTO;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
 
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
+
+    @GetMapping
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        return ResponseEntity.ok(null);
+    }
     
-    @GetMapping("path")
-    public String getMethodName(@RequestParam String param) {
-        return new String();
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserDTO> getUser(@PathVariable String userId) {
+        return null;
     }
 
-    @PostMapping("path")
-    public String postMethodName(@RequestBody String entity) {
-        //TODO: process POST request
-        
-        return entity;
+    @PostMapping("/{userId}")
+    public ResponseEntity<String> createUser(@PathVariable String userId) {
+        return null;
     }
 
-    @PutMapping("path/{id}")
-    public String putMethodName(@PathVariable String id, @RequestBody String entity) {
-        //TODO: process PUT request
-        
-        return entity;
+    @DeleteMapping("/{userId")
+    public ResponseEntity<String> deleteUser(@PathVariable String userId) {
+        return null;
     }
     
 }
