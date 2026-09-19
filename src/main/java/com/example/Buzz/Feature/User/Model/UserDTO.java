@@ -1,5 +1,3 @@
 package com.example.Buzz.Feature.User.Model;
 
-public class UserDTO {
-    
-}
+public record UserDTO() {}
