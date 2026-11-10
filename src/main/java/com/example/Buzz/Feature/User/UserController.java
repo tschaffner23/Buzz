@@ -20,14 +20,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RequestMapping("/users")
 public class UserController {
 
+    private UserService userService;
+    
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(userService.getAllUsers());
     }
     
     @GetMapping("/{userId}")
-    public ResponseEntity<UserDTO> getUser(@PathVariable String userId) {
-        return null;
+    public ResponseEntity<UserDTO> getUser(@PathVariable Long userId) {
+        return ResponseEntity.ok(userService.getUserById(userId));
     }
 
     @PostMapping("/{userId}")
@@ -35,7 +41,7 @@ public class UserController {
         return null;
     }
 
-    @DeleteMapping("/{userId")
+    @DeleteMapping("/{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable String userId) {
         return null;
     }
